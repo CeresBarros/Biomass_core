@@ -1636,7 +1636,7 @@ summaryRegen <- compiler::cmpfun(function(sim) {
 
 plotSummaryBySpecies <- compiler::cmpfun(function(sim) {
   LandR::assertSpeciesPlotLabels(sim$species$species, sim$sppEquiv)
-  assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = sim$sppEquivCol,
+  assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = P(sim)$sppEquivCol,
                    sppColorVect = cols2)
 
   checkPath(file.path(outputPath(sim), "figures"), create = TRUE)
@@ -1786,7 +1786,7 @@ plotSummaryBySpecies <- compiler::cmpfun(function(sim) {
 
 plotVegAttributesMaps <- compiler::cmpfun(function(sim) {
   LandR::assertSpeciesPlotLabels(sim$species$species, sim$sppEquiv)
-  assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = sim$sppEquivCol,
+  assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = P(sim)$sppEquivCol,
                    sppColorVect = sim$sppColorVect)
 
   ## these plots are not saved.
@@ -2102,7 +2102,7 @@ CohortAgeReclassification <- function(sim) {
   ## the following may, or may not change inputs
   sim$sppEquiv <- sppOuts$sppEquiv
   sim$sppNameVector <- sppOuts$sppNameVector
-  P(sim)$sppEquivCol <- sppOuts$sppEquivCol
+  P(sim, module = currentModule(sim))$sppEquivCol <- sppOuts$sppEquivCol
   sim$sppColorVect <- sppOuts$sppColorVect
 
   ## make empty treedFirePixelTableSinceLastDisp
