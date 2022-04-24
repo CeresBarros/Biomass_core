@@ -1636,8 +1636,6 @@ summaryRegen <- compiler::cmpfun(function(sim) {
 
 plotSummaryBySpecies <- compiler::cmpfun(function(sim) {
   LandR::assertSpeciesPlotLabels(sim$species$species, sim$sppEquiv)
-  assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = P(sim)$sppEquivCol,
-                   sppColorVect = cols2)
 
   checkPath(file.path(outputPath(sim), "figures"), create = TRUE)
 
@@ -1708,6 +1706,9 @@ plotSummaryBySpecies <- compiler::cmpfun(function(sim) {
 
     cols2 <- df$cols
     names(cols2) <- df$species
+
+    assertSppVectors(sppEquiv = sim$sppEquiv, sppEquivCol = "EN_generic_short",
+                     sppColorVect = cols2)
 
     ## although Plots can deal with   .plotInitialTime == NA by not plotting, we need to
     ## make sure the plotting windows are not changed/opened if  .plotInitialTime == NA
