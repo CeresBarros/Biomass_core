@@ -24,9 +24,9 @@ defineModule(sim, list(
                   "RandomFields",
                   "CeresBarros/LandR@LANDISinitialB (>= 1.0.7.9017)",
                   "PredictiveEcology/pemisc@development",
-                  "PredictiveEcology/reproducible@development",
-                  "PredictiveEcology/SpaDES.core@development (>= 1.0.8.9000)",
-                  "PredictiveEcology/SpaDES.tools@development",
+                  "PredictiveEcology/SpaDES.core (>= 1.0.8.9000)",
+                  "PredictiveEcology/SpaDES.tools (>= 0.3.8.9000)",
+                  "PredictiveEcology/reproducible (>= 1.2.8)",
                   "ianmseddy/LandR.CS@master (>= 0.0.2.0002)"),
   parameters = rbind(
     defineParameter("calcSummaryBGM", "character", "end", NA, NA,
