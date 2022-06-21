@@ -22,7 +22,7 @@ defineModule(sim, list(
                   "ggplot2", "grid", "parallel", "purrr", "quickPlot",
                   "raster", "Rcpp", "R.utils", "scales", "sp", "tidyr",
                   "RandomFields",
-                  "CeresBarros/LandR@LANDISinitialB (>= 1.0.7.9017)",
+                  "PredictiveEcology/LandR@development (>= 1.0.7.9022)",
                   "PredictiveEcology/pemisc@development",
                   "PredictiveEcology/SpaDES.core (>= 1.0.8.9000)",
                   "PredictiveEcology/SpaDES.tools (>= 0.3.8.9000)",
@@ -2108,9 +2108,9 @@ CohortAgeReclassification <- function(sim) {
 
   ## make empty treedFirePixelTableSinceLastDisp
   if (!suppliedElsewhere("treedFirePixelTableSinceLastDisp", sim)) {
-    sim$treedFirePixelTableSinceLastDisp <- data.table(pixelIndex = integer(),
-                                                       pixelGroup = integer(),
-                                                       burnTime = numeric())
+    sim$treedFirePixelTableSinceLastDisp <- data.table(pixelIndex = integer(0),
+                                                       pixelGroup = integer(0),
+                                                       burnTime = numeric(0))
   }
 
   ## get default species layers
@@ -2143,7 +2143,7 @@ CohortAgeReclassification <- function(sim) {
   }
 
   ## if not using LandR growth/mortality drivers... (assumes LandR.CS)
-  if (P(sim)$growthAndMortalityDrivers != 'LandR') {
+  if (P(sim)$growthAndMortalityDrivers != "LandR") {
     if (!suppliedElsewhere("cceArgs", sim)) {
       sim$cceArgs <- list(quote(CMI),
                           quote(ATA),
@@ -2158,7 +2158,6 @@ CohortAgeReclassification <- function(sim) {
     #   stop("Some or all of sim$cceArgs are not supplied")
     # }
   }
-
 
   gc() ## AMC added this 2019-08-20
 
