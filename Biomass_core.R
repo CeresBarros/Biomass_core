@@ -22,14 +22,10 @@ defineModule(sim, list(
   reqdPkgs = list("assertthat", "compiler", "crayon", "data.table",
                   "dplyr", "fpCompare", "ggplot2", "grid",
                   "parallel", "purrr", "quickPlot", "raster", "Rcpp",
-                  "R.utils", "scales", "sp", "tidyr",
-                  # "curl", "httr", ## called directly by this module, but pulled in by LandR (Sep 6th 2022).
-                  ## Excluded because loading is not necessary (just installation)
+                  "reproducible", "R.utils", "scales", "sp",
+                  "SpaDES.core", "SpaDES.tools", "tidyr",
                   "PredictiveEcology/LandR@development (>= 1.1.0.9006)",
                   "PredictiveEcology/pemisc@development",
-                  "PredictiveEcology/reproducible@development",
-                  "PredictiveEcology/SpaDES.core@development (>= 1.0.8.9001)",
-                  "PredictiveEcology/SpaDES.tools@development (>= 1.0.0.9001)",
                   "ianmseddy/LandR.CS@master (>= 0.0.2.0002)"),
   parameters = rbind(
     defineParameter("calcSummaryBGM", "character", "end", NA, NA,
